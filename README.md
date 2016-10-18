@@ -1,5 +1,10 @@
 [![Build Status](http://jenkins.sonata-nfv.eu/buildStatus/icon?job=son-sdk-catalogue)](http://jenkins.sonata-nfv.eu/job/son-sdk-catalogue)
 
+# Attention:
+```diff
+- SDK Catalogues will end its support on October 31th, milestone Y2B!!! For more information, please check "Issues" section.
+```
+
 # SDK Catalogues
 This repository contains the development for the SDK catalogues. It holds the API implementation of SDK catalogues for services and functions. Moreover, it is closely related to the [son-catalogue-repos](https://github.com/sonata-nfv/son-catalogue-repos) repository that holds the catalogues of the SONATA Service Platform as well at the [son-schema](https://github.com/sonata-nfv/son-schema) repository that holds the schema for the various descriptors, such as the VNFD and the NSD.
 
@@ -142,6 +147,9 @@ For more information about usage of Catalogue, please visit the wikipage link be
 The API documentation is expected to be generated with Swagger soon. Further information can be found on SONATA's wikipages link for SONATA Catalogues:
 
 * [SONATA Catalogues](http://wiki.sonata-nfv.eu/index.php/SONATA_Catalogues) - SONATA Catalogues on wikipages
+
+
+New API documentation in Swagger can be accessed from http://localhost:4011/api-doc while running the Catalogue server
 
 Currently, the API is documented with yardoc and can be built with a rake task:
 

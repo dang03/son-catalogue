@@ -70,6 +70,40 @@ class Vnf
   validates :vendor, :name, :version, :presence => true
 end
 
+# Sonata class for Catalogue Functions
+# class Fsm
+#   include Mongoid::Document
+#   include Mongoid::Timestamps
+#   include Mongoid::Pagination
+   # include Mongoid::Versioning
+#   include Mongoid::Attributes::Dynamic
+#   store_in session: 'fsm_db'
+
+#   field :vendor, type: String
+#   field :name, type: String
+#   field :version, type: String
+  # field :vnf_manager, type: String # <- Not applicable yet
+
+#   validates :vendor, :name, :version, :presence => true
+# end
+
+# Sonata class for Catalogue Functions
+# class Ssm
+#   include Mongoid::Document
+#   include Mongoid::Timestamps
+#   include Mongoid::Pagination
+  # include Mongoid::Versioning
+#   include Mongoid::Attributes::Dynamic
+#   store_in session: 'ssm_db'
+
+#   field :vendor, type: String
+#   field :name, type: String
+#   field :version, type: String
+  # field :vnf_manager, type: String # <- Not applicable yet
+
+#   validates :vendor, :name, :version, :presence => true
+# end
+
 # Sonata class for Catalogue Services
 # class Vnf_Ns_map ## Temporary name
 #  include Mongoid::Document
