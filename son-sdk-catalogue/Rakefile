@@ -50,6 +50,8 @@ YARD::Rake::YardocTask.new do |t|
 	t.files = %w(main.rb helpers/catalogue_helpers.rb routes/catalogue_routes.rb)
 end
 
+task :default => [:swagger]
+
 namespace :ci do
   task all: %w(ci:setup:rspec specs)
 end
