@@ -1,0 +1,744 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "SON-CATALOGUE",
+        "description": "#### SDK Catalogue Documentation\nThis is the documentation for the API implementation of the SON-CATALOGUE on the Sonata Software Development Kit (SDK) for virtual network services and functions.\nThe API allows different methods to access and operate with the functions (VNF) Catalogue and the services (NS) Catalogue.\nFeel free to make a path or an operation and use **Try Operation** to test it.\n",
+        "version": "1.0.0"
+    },
+    "host": "0.0.0.0:4011",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json",
+        "text/xml"
+    ],
+    "produces": [
+        "application/json",
+        "application/x-yaml",
+        "text/html"
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Management",
+                "description": "This method is intended to provide information about the Catalogue's API and management.\n",
+                "tags": [
+                    "Management"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get all available interfaces in JSON or YAML format."
+                    }
+                }
+            }
+        },
+        "/log": {
+            "get": {
+                "summary": "Management",
+                "tags": [
+                    "Management"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Management method to get log of catalogue remotely."
+                    }
+                }
+            }
+        },
+        "/network-services": {
+            "get": {
+                "summary": "Network Services",
+                "description": "Retrieve all service descriptors stored in the catalogue.",
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of service descriptors"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Submit a new service descriptor"
+                    }
+                }
+            }
+        },
+        "/network-services/id/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "ID.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified service descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Ns"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Update a service descriptor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete a service descriptor."
+                    }
+                }
+            }
+        },
+        "/network-services/vendor/{vendor}": {
+            "parameters": [
+                {
+                    "name": "vendor",
+                    "in": "path",
+                    "description": "Vendor identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified service descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Ns"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/network-services/vendor/{vendor}/name/{name}": {
+            "parameters": [
+                {
+                    "name": "vendor",
+                    "in": "path",
+                    "description": "Vendor identifier.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified service descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Ns"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/network-services/vendor/{vendor}/name/{name}/version/{version}": {
+            "parameters": [
+                {
+                    "name": "vendor",
+                    "in": "path",
+                    "description": "Vendor identifier.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "version",
+                    "in": "path",
+                    "description": "Version number.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified service descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Ns"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Update a service descriptor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete a service descriptor."
+                    }
+                }
+            }
+        },
+        "/network-services/vendor/{vendor}/last": {
+            "parameters": [
+                {
+                    "name": "vendor",
+                    "in": "path",
+                    "description": "Vendor identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get last version of all service descriptor of a vendor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Ns"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/network-services/name/{name}": {
+            "parameters": [
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified service descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Ns"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/network-services/name/{name}/version/{version}": {
+            "parameters": [
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "version",
+                    "in": "path",
+                    "description": "Version number.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified service descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Ns"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/network-services/name/{name}/last": {
+            "parameters": [
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get last version of all service descriptor by its name in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Ns"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vnfs": {
+            "get": {
+                "summary": "Network Functions",
+                "description": "Retrieve all function descriptors stored in the catalogue.",
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of function descriptors.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error.",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Submit a new function descriptor"
+                    }
+                }
+            }
+        },
+        "/vnfs/id/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "ID.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified function descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Update a function descriptor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete a function descriptor."
+                    }
+                }
+            }
+        },
+        "/vnfs/vendor/{vendor}": {
+            "parameters": [
+                {
+                    "name": "vendor",
+                    "in": "path",
+                    "description": "Vendor identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified function descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vnfs/vendor/{vendor}/name/{name}": {
+            "parameters": [
+                {
+                    "name": "vendor",
+                    "in": "path",
+                    "description": "Vendor identifier.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified function descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vnfs/vendor/{vendor}/name/{name}/version/{version}": {
+            "parameters": [
+                {
+                    "name": "vendor",
+                    "in": "path",
+                    "description": "Vendor identifier.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "version",
+                    "in": "path",
+                    "description": "Version number.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified function descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Update a function descriptor."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete a function descriptor."
+                    }
+                }
+            }
+        },
+        "/vnfs/vendor/{vendor}/last": {
+            "parameters": [
+                {
+                    "name": "vendor",
+                    "in": "path",
+                    "description": "Vendor identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get last version of all function descriptor of a vendor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vnfs/name/{name}": {
+            "parameters": [
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified function descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vnfs/name/{name}/version/{version}": {
+            "parameters": [
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "version",
+                    "in": "path",
+                    "description": "Version number.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get identified function descriptor in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/vnfs/name/{name}/last": {
+            "parameters": [
+                {
+                    "name": "name",
+                    "in": "path",
+                    "description": "Name identifier.",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Functions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get last version of all function descriptor by its name in JSON or YAML format.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Vnf"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        },
+        "Ns": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the network-service."
+                },
+                "vendor": {
+                    "type": "string",
+                    "description": "Identifier for the network-service vendor."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Identifier for the network-service name."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Identifier for the network-service version."
+                }
+            }
+        },
+        "Vnf": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier for the function."
+                },
+                "vendor": {
+                    "type": "string",
+                    "description": "Unique identifier for the function vendor."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique identifier for the function name."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Unique identifier for the function version."
+                }
+            }
+        }
+    }
+}

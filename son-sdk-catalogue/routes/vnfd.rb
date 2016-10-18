@@ -25,10 +25,5 @@
 ## acknowledge the contributions of their colleagues of the SONATA
 ## partner consortium (www.sonata-nfv.eu).
 
-require_relative 'catalogue_routes'
-require_relative 'nsd'
-require_relative 'vnfd'
-require_relative 'fsmd'
-require_relative 'ssmd'
-require_relative 'docs'
-
+class SonataCatalogue < Sinatra::Application
+end
